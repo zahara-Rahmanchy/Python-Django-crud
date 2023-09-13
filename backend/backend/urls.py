@@ -17,7 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from myjsonModel import views
+
+
 urlpatterns = [
     path("admin/", admin.site.urls),
+    # path('', "hello"),
+    path('', views.get_home, name='get_home'),
     path('get-stock-market-jsondata/', views.get_stock_market_jsondata, name='get_stock_market_jsondata'),
 ]

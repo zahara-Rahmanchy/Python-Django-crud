@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 from django.http import JsonResponse
+from django.http import HttpResponse
 import json
 
 def get_stock_market_jsondata(request):
@@ -11,3 +12,6 @@ def get_stock_market_jsondata(request):
         data = json.load(json_file)
 
     return JsonResponse(data,safe=False)
+
+def get_home(request):
+    return HttpResponse("<h1>Welcome to first react-django application</h1>")
