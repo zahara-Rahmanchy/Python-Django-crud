@@ -3,12 +3,21 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import StockTable from './components/StockTable'
+import TradeCodesDropdown from './components/TradeCodesDropdown'
+import { DataProvider } from './provider/DataContext'
 
 function App() {
-  const [count, setCount] = useState(0)
+ 
 
   return (
-   <><StockTable/></>
+
+   <>
+   <DataProvider>
+
+   <TradeCodesDropdown/>
+   <StockTable/>
+   </DataProvider>
+   </>
   )
 }
 
