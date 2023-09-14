@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Test from './Test';
+import LineAndBarChart from './LineAndBarChart';
 
 const TradeCodesDropdown = () => {
 
@@ -18,7 +19,7 @@ const TradeCodesDropdown = () => {
             if(response.status === 200){
                 // const uniqueTradeCodes = [...new Set(response.data.map(item => item.trade_code))];
                 setTradeCodes(response.data)
-                console.log(response.data)
+                // console.log(response.data)
             }
            }
            catch(error){
@@ -30,9 +31,10 @@ const TradeCodesDropdown = () => {
 
 
   return (
-    <div>
+    <>
+    <div className='md:w-[40%] w-full flex justify-center '>
     
-    <select className="select select-primary w-full max-w-xs mb-4" value={selectedTradeCode} onChange={handleTradeCodeChange}>
+    <select className="select select-primary w-full max-w-xs my-4"  value={selectedTradeCode} onChange={handleTradeCodeChange}>
         <option value="">Select Trade Code</option>
         {tradeCodes.map((tradeCode) => (
           <option key={tradeCode} value={tradeCode}>
@@ -43,6 +45,8 @@ const TradeCodesDropdown = () => {
       
       <Test code={selectedTradeCode}/>
       </div>
+      <LineAndBarChart selectedTradeCode={selectedTradeCode} />
+    </>
   )
 }
 

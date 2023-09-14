@@ -12,36 +12,11 @@ const StockTable = () => {
       if (!data || data.length === 0) {
         return <div>No data available.</div>;
       }
-//     const[stocks,setStocks] = useState([])
-//     const [isLoading, setIsLoading] = useState(true)
-//     const getData = async()=>{
-//         // using jsonmodel
-//         // const response = await axios.get("http://127.0.0.1:8000/get-stock-market-jsondata/");
-//         // using sqlmodel
-//         const response = await axios.get("http://127.0.0.1:8000/api/");
-//         return response.data
-//         // console.log(...stocks.slice(0,5))
-//         // // setStocks(stocks.slice(0,5))
-//     }
-// // Use useMemo to memoize data fetching
-//     const memoizedData = useMemo(async () => {
-//         const data = await getData();
-//         return data;
-//     }, []);
 
-//    useEffect(()=>{
-//     const fetchData = async () => {
-//         const data = await memoizedData;
-//         setStocks(data);
-//         setIsLoading(false)
-//     };
-
-//     fetchData();
-//    },[memoizedData])
 
   return (
     <div>
-    <div className="bg-[#FAFAFB] h-full">
+    <div className="bg-[#FAFAFB] h-full mt-10 max-w-7xl mx-auto">
         
         <div className="overflow-x-auto ">
                 

@@ -5,17 +5,21 @@ import './App.css'
 import StockTable from './components/StockTable'
 import TradeCodesDropdown from './components/TradeCodesDropdown'
 import { DataProvider } from './provider/DataContext'
+import LineAndBarChart from './components/LineAndBarChart'
 
 function App() {
  
 
   return (
 
-   <>
+   < >
    <DataProvider>
 
-   <TradeCodesDropdown/>
-   <StockTable/>
+    <div>
+      <TradeCodesDropdown/>
+      {/* <LineAndBarChart/> */}
+      <StockTable/>
+    </div>
    </DataProvider>
    </>
   )
