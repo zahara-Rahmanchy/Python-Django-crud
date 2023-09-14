@@ -1,0 +1,8 @@
+backend/myenv/
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore database files
+backend/db.sqlite3

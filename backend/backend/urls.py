@@ -15,13 +15,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.urls import include
 from django.urls import path
 from myjsonModel import views
+from sqlModel.views import StocksView
+from rest_framework import routers
 
+route = routers.DefaultRouter()
+route.register("",StocksView,basename='stocksview')
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # path('', "hello"),
-    path('', views.get_home, name='get_home'),
+    path('api/', include(route.urls)),
+    # path('', views.get_home, name='get_home'),
     path('get-stock-market-jsondata/', views.get_stock_market_jsondata, name='get_stock_market_jsondata'),
 ]

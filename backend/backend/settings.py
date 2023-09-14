@@ -25,9 +25,9 @@ SECRET_KEY = "django-insecure-h(y@q-*@@)r%5i6c8)92!ynj1alh8#&83jwkb$0o3vq)uq%-aj
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
 
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "myjsonModel.apps.MyjsonmodelConfig",
     "rest_framework",
     'corsheaders',
+    "sqlModel.apps.SqlmodelConfig",
 ]
 
 MIDDLEWARE = [
@@ -79,9 +80,23 @@ WSGI_APPLICATION = "backend.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'stocks',  # actual database name
+        'USER': 'root',  # database username
+        'PASSWORD': '',  # actual database password
+        'HOST': 'localhost',  # PythonAnywhere MySQL host address
+        'PORT': ''
+       
     }
+    #  "default": {
+    #     'ENGINE': 'django.db.backends.mysql',
+    #     'NAME': 'zaharachy72$Stocks',  # actual database name
+    #     'USER': 'zaharachy72',  # database username
+    #     'PASSWORD': 'mysqlpassword',  # actual database password
+    #     'HOST': 'zaharachy72.mysql.pythonanywhere-services.com',  # PythonAnywhere MySQL host address
+    #     'PORT': ''
+       
+    # }
 }
 
 
