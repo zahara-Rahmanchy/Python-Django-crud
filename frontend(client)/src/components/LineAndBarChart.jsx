@@ -16,6 +16,7 @@ import {
     BarController
   } from 'chart.js/auto';
 import { Bar, Chart, Line } from 'react-chartjs-2';
+import Loading from './Loading';
 const LineAndBarChart = ({selectedTradeCode}) => {
   ChartJS.register(
     LinearScale,
@@ -28,11 +29,12 @@ const LineAndBarChart = ({selectedTradeCode}) => {
     LineController,
     BarController
   );
-    const { data } = useContext(DataContext);
+    const { data,isLoading } = useContext(DataContext);
     const sortedData = [...data]; 
     
-
-    sortedData.sort((a, b) => new Date(a.date) - new Date(b.date));
+    console.log(sortedData.slice(0,5))
+    sortedData.sort((a, b) =>{
+    return moment(b.date).valueOf() - moment(a.date).valueOf();});
     const alldates = [];
     const closeValues = [];
     const volumeValues = [];
@@ -69,6 +71,9 @@ const chartOptions = {
       }, time: {
         unit: 'day', // Set the time unit to 'day', adjust as needed (e.g., 'month', 'year')
         tooltipFormat: 'YYYY-MM-DD', // Format for tooltips
+        displayFormats: {
+          day: 'MMM D, YYYY', // Format for displaying day, month, and year
+        },
       },
       
     },
@@ -163,10 +168,10 @@ const chartData = {
 
  
   return (
-    <div className='max-w-7xl mx-auto'>LineAndBarChart
+    <div className='max-w-7xl mx-auto'>
 
         <div style={{width:"100%",height: "400px"}} className=''>
-       
+        {isLoading && <Loading/>}
         <Chart data={chartData} options={chartOptions} type={['line', 'bar']} />
        
         </div>

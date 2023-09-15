@@ -19,14 +19,20 @@ from django.urls import include
 from django.urls import path
 from myjsonModel import views
 from sqlModel.views import StocksView
+# from sqlModel.views import StockDataAPIView
 from rest_framework import routers
+# from sqlModel.views import TradeCodeListView
 
 route = routers.DefaultRouter()
 route.register("",StocksView,basename='stocksview')
+# route.register('stock-data', StockDataAPIView,basename='stockdata') 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
     path('api/', include(route.urls)),
-    # path('', views.get_home, name='get_home'),
+    # path('api/all/', StocksView.as_view({'get': 'all'}), name='all-trade-codes'),
+    path('', views.get_home, name='get_home'),
+    # path('api/all-trade-codes/', TradeCodeListView.as_view(), name='all-trade-codes'),
+
     path('get-stock-market-jsondata/', views.get_stock_market_jsondata, name='get_stock_market_jsondata'),
 ]

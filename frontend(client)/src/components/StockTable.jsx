@@ -2,9 +2,12 @@ import axios from 'axios'
 import React, { useContext, useEffect, useMemo, useState } from 'react'
 import Loading from './Loading'
 import { DataContext } from '../provider/DataContext';
+import {FiEdit} from "react-icons/fi"
+import { Link } from 'react-router-dom';
 
 const StockTable = () => {
     const {data,isLoading} = useContext(DataContext);
+    
     if (isLoading) {
         return <Loading />;
       }
@@ -13,6 +16,7 @@ const StockTable = () => {
         return <div>No data available.</div>;
       }
 
+   
 
   return (
     <div>
@@ -47,13 +51,16 @@ const StockTable = () => {
                         <td>{stock.open}</td> 
                         <td>{stock.close}</td>
                         <td>{stock.volume}</td>
-                        <td><button className='btn btn-sm bg-blue-800 text-white'>
-                            /</button></td>
+                        <td><Link
+                    to={`/update/${stock.id}`} className='btn btn-sm bg-blue-800 text-white hover:bg-purple-700'>
+                      <FiEdit className="text-white"/>
+                           </Link></td>
                   
                     </tr>))}
                     </tbody> 
                     
                 </table>
+              
                 </div>
         </div>
     
