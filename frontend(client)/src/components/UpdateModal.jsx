@@ -4,7 +4,7 @@ import {useNavigate, useParams} from "react-router-dom"
 const UpdateModal = () => {
   const {sid} = useParams();
   const [initialStockDetails, setInitialStockDetails] = useState([]);
-   const navigate = useNavigate
+   const navigate = useNavigate()
   useEffect(() => {
     const fetchDataById = async () => {
       try {
@@ -59,13 +59,13 @@ const UpdateModal = () => {
 
 
   return (
-   <div className='grid grid-cols-3 place-items-center gap-2 px-10 py-10 object-cover h-screen' style={{backgroundImage: 'url(https://images.unsplash.com/photo-1559526324-593bc073d938?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80)'}}>
+   <div className='grid grid-cols-3 place-items-center gap-2 md:px-10 py-10 object-cover md:h-screen h-full' style={{backgroundImage: 'url(https://img.freepik.com/free-photo/working-with-graphs-man-working-office-staying-late-night_155003-40818.jpg?w=996&t=st=1694774267~exp=1694774867~hmac=f73382a0f2578fb68c2f56f8c0b1abf8c8a07cabe31dcd48eec53bc64d1bb60b)'}}>
     {/* <div className='md:col-span-1 col-span-3 order-2'>
       <h1>Update Your Data</h1></div> */}
     <div className="card  w-[90%]  col-span-3 mx-5 shadow-2xl bg-slate-800 opacity-90  text-white">
       <form className="card-body" onSubmit={handleUpdate}>
         
-        <div className='flex md:flex-row flex-col justify-around w-full  space-x-10'>
+        <div className='flex md:flex-row flex-col justify-around w-full  md:space-x-10'>
         <div className="form-control md:w-1/2 w-full">
           <label className="label">
             <span className="label-text text-white">Id</span>
@@ -81,7 +81,7 @@ const UpdateModal = () => {
         </div>
 
 {/* second row */}
-        <div className='flex md:flex-row flex-col justify-around w-full  space-x-10'>
+        <div className='flex md:flex-row flex-col justify-around w-full  md:space-x-10'>
         <div className="form-control md:w-1/2 w-full">
           <label className="label">
             <span className="label-text text-white">Trade Code</span>
@@ -96,7 +96,7 @@ const UpdateModal = () => {
         </div>
         </div>
 
-        <div className='flex md:flex-row flex-col justify-around w-full  space-x-10'>
+        <div className='flex md:flex-row flex-col justify-around w-full  md:space-x-10'>
         <div className="form-control md:w-1/2 w-full">
           <label className="label">
             <span className="label-text text-white">Low</span>
@@ -110,7 +110,7 @@ const UpdateModal = () => {
           <input  type="number" step="0.1" name="open" placeholder="open" defaultValue={open} className="text-black input input-bordered" />
         </div>
         </div>
-        <div className='flex md:flex-row flex-col justify-around w-full  space-x-10'>
+        <div className='flex md:flex-row flex-col justify-around w-full  md:space-x-10'>
         <div className="form-control md:w-1/2 w-full">
           <label className="label">
             <span className="label-text text-white">Close</span>

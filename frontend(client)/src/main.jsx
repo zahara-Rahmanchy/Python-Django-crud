@@ -5,6 +5,7 @@ import './index.css'
 import UpdateModal from './components/UpdateModal.jsx';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Home from './components/Home.jsx';
+import AddStockData from './components/AddStockData.jsx';
 
 const router = createBrowserRouter([
   {
@@ -15,6 +16,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home/>,
+      },
+      {
+        path: "/addstock",
+        element: <AddStockData/>,
       },
       
       {
