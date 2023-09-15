@@ -1,0 +1,16 @@
+# Django CRUD Web Application
+ - This project is my first experience with Django, 
+  where I embarked on a journey to create a basic web application with Django and Python. 
+  While working on this project, I encountered various challenges and learned fundamental concepts, which I'd like to share.
+
+### Django Fundamentals: 
+- My initial experience with Django was quite challenging, as I had no prior knowledge of the framework. Understanding core concepts like models, views, and templates was an important milestone, and it took time to become comfortable with these concepts.I knew python but django altogether was different.
+
+### Views and Serializers: 
+- One of the major learning curves was comprehending how views and serializers function in Django REST Framework. It was a fascinating yet complex part of the project that required careful study and practice.
+
+### Database Integration: 
+- While I had experience with SQL databases, integrating a MySQL database into a Django application for production  was a new and exciting experience. This part of the project deepened my understanding of database management within Django. Even though now I understood how to implement, I couldn't do that to my project as Django application was giving errors in deployment.
+
+### Deployment Challenges
+- Deploying the Django application brought its own unique set of challenges. Notably, I encountered difficulties with the requirements.txt file, which specifies the project's dependencies. I had to troubleshoot and resolve issues related to package versions and compatibility. Regrettably, despite my best efforts, I faced difficulties during deployment and was unable to successfully deploy the application to a live server.
