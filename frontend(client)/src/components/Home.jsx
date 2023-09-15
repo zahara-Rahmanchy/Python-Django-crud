@@ -16,7 +16,8 @@ const Home = () => {
     <Suspense fallback={<Loading/>}>
       <TradeCodesDropdown/>
       
-      <StockTable/></Suspense>
+      <StockTable/>
+      </Suspense>
     </div>
    </DataProvider></div>
   )

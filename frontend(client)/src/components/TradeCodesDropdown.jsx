@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Test from './Test';
 import LineAndBarChart from './LineAndBarChart';
+import { Link } from 'react-router-dom';
 
 const TradeCodesDropdown = () => {
 
@@ -32,9 +33,9 @@ const TradeCodesDropdown = () => {
 
   return (
     <>
-    <div className='md:w-[40%] w-full flex justify-center '>
-    
-    <select className="select select-primary w-full max-w-xs my-4"  value={selectedTradeCode} onChange={handleTradeCodeChange}>
+    <div className=' w-full flex md:flex-row flex-col justify-around bg-blue-950 items-center'>
+     
+    <select className="select select-primary w-full max-w-xs my-3"  value={selectedTradeCode} onChange={handleTradeCodeChange}>
         <option value="">Select Trade Code</option>
         {tradeCodes.map((tradeCode) => (
           <option key={tradeCode} value={tradeCode}>
@@ -43,7 +44,10 @@ const TradeCodesDropdown = () => {
         ))}
       </select>
       
-      <Test code={selectedTradeCode}/>
+      <Link
+        to={`/addstock`} className=' w-[20%] text-xl bg-transparent text-white hover:text-purple-400'>
+          Add Stock
+        </Link>
       </div>
       <LineAndBarChart selectedTradeCode={selectedTradeCode} />
     </>
