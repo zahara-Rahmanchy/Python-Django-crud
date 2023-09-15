@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useContext, useEffect, useMemo, useState } from 'react'
 import Loading from './Loading'
 import { DataContext } from '../provider/DataContext';
-import {FiEdit} from "react-icons/fi"
+import {FiEdit, FiTrash} from "react-icons/fi"
 import { Link } from 'react-router-dom';
 
 const StockTable = () => {
@@ -16,7 +16,13 @@ const StockTable = () => {
         return <div>No data available.</div>;
       }
 
-   
+   const handleDelete = async(id)=>{
+    console.log(id)
+    const response = await axios.delete(`http://localhost:8000/api/${id}/`)
+    if(response){
+      alert("Deleted Successfully!")
+    }
+   }
 
   return (
     <div>
@@ -51,10 +57,17 @@ const StockTable = () => {
                         <td>{stock.open}</td> 
                         <td>{stock.close}</td>
                         <td>{stock.volume}</td>
-                        <td><Link
-                    to={`/update/${stock.id}`} className='btn btn-sm bg-blue-800 text-white hover:bg-purple-700'>
-                      <FiEdit className="text-white"/>
-                           </Link></td>
+                        <td className="flex flex-row space-x-2">
+                          <Link
+                            to={`/update/${stock.id}`} className='btn btn-sm bg-blue-800 text-white hover:bg-purple-700'>
+                              <FiEdit className="text-white"/>
+                           </Link>
+
+                           <button className='btn btn-sm bg-[#FF7F50] text-white hover:bg-purple-700' onClick={()=>handleDelete(stock.id)}>
+                            <FiTrash className="text-white"/>
+                            </button>
+                           
+                        </td>
                   
                     </tr>))}
                     </tbody> 
